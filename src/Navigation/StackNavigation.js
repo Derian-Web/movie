@@ -24,6 +24,16 @@ const buttonLeft = (screen) => {
         );
     // }
   };
+
+const buttonRight = () => {
+  return(
+    <IconButton
+      icon="magnify"
+      onPress={() => console.log(Buscador) }
+    />
+  )
+}
+
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -32,7 +42,7 @@ const buttonLeft = (screen) => {
         options={{
           title: 'TheMovieApp',
           headerLeft: () => buttonLeft('home'),
-        //   headerRight: () => buttonRight(),
+          headerRight: () => buttonRight(),
         }}
       />
       <Stack.Screen
@@ -42,7 +52,7 @@ const buttonLeft = (screen) => {
           title: '',
           headerTransparent: true,
           headerLeft: () => buttonLeft('movie'),
-        //   headerRight: () => buttonRight(),
+          headerRight: () => buttonRight(),
         }}
       />
       <Stack.Screen
@@ -51,7 +61,7 @@ const buttonLeft = (screen) => {
         options={{
           title: 'Películas Populares',
           headerLeft: () => buttonLeft('popular'),
-        //   headerRight: () => buttonRight(),
+          headerRight: () => buttonRight(),
         }}
       />
     </Stack.Navigator>

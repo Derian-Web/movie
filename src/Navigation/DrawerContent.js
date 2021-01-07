@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { View } from 'react-native'
+import { StyleSheet , View  } from 'react-native'
 import {DrawerContentScrollView} from "@react-navigation/drawer";
 import {Drawer, Switch , TouchableRipple,Text} from "react-native-paper";
 import usePreference from "../hooks/usePreferences";
@@ -23,6 +23,24 @@ export default function DrawerContent(props) {
                 <Drawer.Item label="Inicio" active={active === "home"} onPress={() =>  onChangeScreen('home')} />
                 <Drawer.Item label="Peliculas Populares" active={active === "popular"} onPress={() =>  onChangeScreen('popular')} />
             </Drawer.Section>
+            <Drawer.Section title="opciones">
+                <TouchableRipple>
+                    <View style={styles.preference}>
+                        <Text>Tema Oscuro</Text>
+                        <Switch value={theme == "dark" ? true : false} onValueChange={toggleTheme} />
+                    </View>
+                </TouchableRipple>
+            </Drawer.Section>
         </DrawerContentScrollView>
     )
 }
+
+const styles = StyleSheet.create({
+    preference: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        paddingVertical: 12,
+        paddingHorizontal: 16,
+    }
+})
