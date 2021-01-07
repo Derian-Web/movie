@@ -1,5 +1,7 @@
 import React, { useState, useEffect} from "react";
-import {View, Text} from "react-native";
+import {StyleSheet, View, ScrollView, Text} from "react-native";
+import { Title } from 'react-native-paper';
+import CarouselVertical from '../components/CarouselVertical' 
 import {getNewsMoviesApi} from "../Api/movies"
 
 
@@ -13,8 +15,26 @@ export default function Home(){
     }, [])
 
    return(
-    <View>
-        <Text>Estamos en Home</Text>
-    </View>
+    <ScrollView showsVerticalScrollIndicator={false}>
+       {newMovies && (
+           <View style={styles.news}>
+               <Title style={styles.newsTitle}>Nuevas Peliculas</Title>
+               <CarouselVertical data={newMovies} />
+           </View>
+       )} 
+    </ScrollView>
    ) 
 }
+
+const styles = StyleSheet.create({
+    news: {
+        marginVertical: 10,
+    },
+    newsTitle:{
+        marginBottom: 15,
+        marginHorizontal: 20,
+        fontWeight: "bold",
+        fontSize: 22
+
+    }
+})
