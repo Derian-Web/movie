@@ -12,27 +12,19 @@ export default function StackNavigation(props) {
   const { navigation } = props;
 
 const buttonLeft = (screen) => {
-    // switch (screen) {
-    //   case 'search':
-    //   case 'movie':
-    //     return (
-    //       <IconButton icon="arrow-left" onPress={() => navigation.goBack()} />
-    //     );
-    //   default:
+    switch (screen) {
+      case 'movie':
+        return (
+          <IconButton icon="arrow-left" onPress={() => navigation.goBack()} />
+        );
+      default:
         return (
           <IconButton icon="menu" onPress={() => navigation.openDrawer()} />
         );
-    // }
+    }
   };
 
-const buttonRight = () => {
-  return(
-    <IconButton
-      icon="magnify"
-      onPress={() => console.log(Buscador) }
-    />
-  )
-}
+
 
   return (
     <Stack.Navigator>
@@ -42,7 +34,7 @@ const buttonRight = () => {
         options={{
           title: 'TheMovieApp',
           headerLeft: () => buttonLeft('home'),
-          headerRight: () => buttonRight(),
+          
         }}
       />
       <Stack.Screen
@@ -52,7 +44,7 @@ const buttonRight = () => {
           title: '',
           headerTransparent: true,
           headerLeft: () => buttonLeft('movie'),
-          headerRight: () => buttonRight(),
+         
         }}
       />
       <Stack.Screen
@@ -61,7 +53,7 @@ const buttonRight = () => {
         options={{
           title: 'Películas Populares',
           headerLeft: () => buttonLeft('popular'),
-          headerRight: () => buttonRight(),
+         
         }}
       />
     </Stack.Navigator>
