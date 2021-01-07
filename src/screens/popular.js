@@ -5,7 +5,7 @@ import {View, Text} from "react-native"
 export default function News(){
    return(
     <View>
-        <Text>Estamos en Home</Text>
+        <Text>Peliculas Populares</Text>
     </View>
    ) 
 }
