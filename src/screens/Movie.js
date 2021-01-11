@@ -27,6 +27,9 @@ export default function Movie(props) {
         <MovieTrailer setShowVideo={setShowVideo} />
         <MovieTitle movie={movie} />
         <Text style={styles.overview}>{movie.overview}</Text>
+        <Text style={[styles.overview, {marginBottom: 30}]}>
+          Fecha de lanzamiento: {movie.release_date}
+        </Text>
       </ScrollView>
       <ModalVideo show={showVideo} setShow={setShowVideo} idMovie={id} />
       
@@ -116,7 +119,7 @@ const styles = StyleSheet.create({
       color: "#8697a5"
     },
     genr:{
-      marginLeft: 20,
+      marginLeft: 18,
       
     },
     overview:{
