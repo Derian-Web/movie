@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
-import { StyleSheet , View  } from 'react-native'
+import { StyleSheet , View , Button } from 'react-native'
 import {DrawerContentScrollView} from "@react-navigation/drawer";
 import {Drawer, Switch , TouchableRipple,Text} from "react-native-paper";
 import usePreference from "../hooks/usePreferences";
+import firebase from "../utils/firebase"
 
 
 export default function DrawerContent(props) {
@@ -31,6 +32,11 @@ export default function DrawerContent(props) {
                     </View>
                 </TouchableRipple>
             </Drawer.Section>
+            <Drawer.Section>
+                <View style={styles.viewClose}>
+                    <Text onPress={()=> firebase.auth().signOut()}>Cerrar seccion</Text>
+                </View>       
+            </Drawer.Section>
         </DrawerContentScrollView>
     )
 }
@@ -42,5 +48,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingVertical: 12,
         paddingHorizontal: 16,
+    },
+    viewClose:{
+        backgroundColor: "#820000",
+        paddingVertical: 10,
+        paddingHorizontal: 30
+
     }
 })

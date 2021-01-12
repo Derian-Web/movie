@@ -64,19 +64,7 @@ const preference = useMemo(
   );
 }
 
-function Logout() {
 
-  const Logout = () =>{
-    firebase.auth().signOut();
-  }
-
-  return(
-    <View>
-      <Text>Estas logeado</Text>
-      <Button title="Cerrar sesion" onPress={Logout} />
-    </View>
-  )
-}
 
 const styles = StyleSheet.create({
   background:{
