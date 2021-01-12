@@ -4,6 +4,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Home from '../screens/Home';
 import Movie from '../screens/Movie';
 import Popular from '../screens/popular';
+import LoginForm from "../components/LoginForm"
+
 
 
 const Stack = createStackNavigator();
@@ -28,13 +30,22 @@ const buttonLeft = (screen) => {
 
   return (
     <Stack.Navigator>
-      <Stack.Screen
+       <Stack.Screen
         name="home"
         component={Home}
         options={{
           title: 'TheMovieApp',
           headerLeft: () => buttonLeft('home'),
           
+        }}
+      />
+       <Stack.Screen
+        name="popular"
+        component={Popular}
+        options={{
+          title: 'Películas Populares',
+          headerLeft: () => buttonLeft('popular'),
+         
         }}
       />
       <Stack.Screen
@@ -47,15 +58,8 @@ const buttonLeft = (screen) => {
          
         }}
       />
-      <Stack.Screen
-        name="popular"
-        component={Popular}
-        options={{
-          title: 'Películas Populares',
-          headerLeft: () => buttonLeft('popular'),
-         
-        }}
-      />
+     
+   
     </Stack.Navigator>
   );
 }
