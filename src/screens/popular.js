@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { StyleSheet,  View, ScrollView, Image } from "react-native";
+import { StyleSheet,  View, ScrollView, Image, TouchableWithoutFeedback } from "react-native";
 import {Text,Title } from "react-native-paper";
 import { map }  from "lodash";
 import {getPopularMoviesApi } from '../Api/movies';
@@ -20,17 +20,23 @@ export default function Popular(props){
    return(
       <ScrollView>
         {map(movies, (movie, index)=>(
-        <Movie key={index} movie={movie} />
+        <Movie key={index} movie={movie} navigation={ navigation }/>
         ))} 
       </ScrollView>
    );
 }
 
 function Movie(props) {
-    const {movie} = props;
-    const { poster_path, title,  } = movie;
+    const {movie, navigation} = props;
+    const {id, poster_path, title,  } = movie;
+
+    const goMovie = () =>{
+        navigation.navigate("movie",{ id })
+    }
+
     return(
-        <View style={styles.movie}>
+        <TouchableWithoutFeedback onPress={goMovie}>
+             <View style={styles.movie}>
             <View style={styles.left}>
                 <Image
                   style={styles.image}
@@ -46,6 +52,8 @@ function Movie(props) {
               <Text></Text>
             </View>
         </View>
+        </TouchableWithoutFeedback>
+       
     )
 }
 

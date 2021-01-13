@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { StyleSheet, Text, View, TouchableOpacity,TextInput } from 'react-native';
 import { validateEmail} from "../utils/validation";
 import firebase from "../utils/firebase";
+import { Title } from 'react-native-paper';
 import Home from "../screens/Home"
 
 export default function LoginForm(props) {
@@ -40,6 +41,7 @@ export default function LoginForm(props) {
  }
     return (
         <>
+        
             <TextInput 
                 style={[styles.input, fomrError.email && styles.error]}
                 placeholder="Correo electronico"
